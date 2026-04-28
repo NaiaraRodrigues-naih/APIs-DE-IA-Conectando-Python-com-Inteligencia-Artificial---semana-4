@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 analise.json
 analise_completa.json
+*_traduzido.json

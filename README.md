@@ -54,32 +54,26 @@ cd "Projeto3_Analisador de Texto com IA"
 python projeto3_analisador_de_texto.py
 ```
 
-**3 modos de uso:**
-
 ```
 1 - Digitar texto manualmente
 2 - Analisar arquivo .txt  →  salva resultado em analise.json
 3 - Analisar pasta inteira de .txt  →  salva tudo em analise_completa.json
 ```
 
-**Exemplo de saída:**
+---
 
-```json
-{
-  "resumo": [
-    "frase 1",
-    "frase 2",
-    "frase 3"
-  ],
-  "sentimento": "bom",
-  "palavras_chave": [
-    "palavra1",
-    "palavra2",
-    "palavra3",
-    "palavra4",
-    "palavra5"
-  ]
-}
+### Projeto 4 — Tradutor Inteligente com IA
+
+Detecta o idioma e traduz para PT-BR de forma natural, adaptando expressões idiomáticas e culturais.
+
+```bash
+cd Projeto4_Tradutor_Inteligente
+python projeto4_tradutor.py
+```
+
+```
+1 - Digitar ou colar texto
+2 - Traduzir arquivo .txt  →  salva resultado em <nome>_traduzido.json
 ```
 
 ---
