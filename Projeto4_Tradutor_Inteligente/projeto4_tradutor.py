@@ -66,6 +66,31 @@ def traduzir_arquivo(caminho_txt):
     return resultado
 
 
+def traduzir_pasta(caminho_pasta):
+    pasta = Path(caminho_pasta)
+    arquivos = [f for f in pasta.glob("*.txt") if not f.stem.endswith("_pt")]
+
+    if not arquivos:
+        print("Nenhum arquivo .txt encontrado na pasta.")
+        return
+
+    print(f"\nEncontrados {len(arquivos)} arquivo(s) .txt\n")
+
+    for i, arquivo in enumerate(arquivos):
+        texto = arquivo.read_text(encoding="utf-8")
+        resultado = traduzir(texto)
+
+        saida_txt = arquivo.with_stem(arquivo.stem + "_pt")
+        saida_txt.write_text(resultado["traducao"], encoding="utf-8")
+
+        print(f"✔ {arquivo.name} → {resultado['idioma_detectado']} ({resultado['codigo_idioma']}) → {saida_txt.name}")
+
+        if i < len(arquivos) - 1:
+            time.sleep(3)
+
+    print(f"\nConcluído. {len(arquivos)} arquivo(s) traduzido(s) na pasta: {pasta}")
+
+
 def exibir_resultado(resultado):
     print("\n" + "=" * 50)
     print(f"  Idioma detectado : {resultado['idioma_detectado']} ({resultado['codigo_idioma']})")
@@ -82,6 +107,7 @@ print("=== Tradutor Inteligente com IA ===")
 print("Detecta o idioma e traduz para Português Brasileiro\n")
 print("1 - Digitar ou colar texto")
 print("2 - Traduzir arquivo .txt")
+print("3 - Traduzir pasta inteira de .txt  →  salva com _pt no nome")
 opcao = input("\nEscolha uma opção: ").strip()
 
 if opcao == "1":
@@ -109,6 +135,10 @@ elif opcao == "2":
     print("\nTraduzindo...")
     resultado = traduzir_arquivo(caminho)
     exibir_resultado(resultado)
+
+elif opcao == "3":
+    pasta = input("\nCaminho da pasta: ").strip()
+    traduzir_pasta(pasta)
 
 else:
     print("Opção inválida.")

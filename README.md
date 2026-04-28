@@ -73,7 +73,8 @@ python projeto4_tradutor.py
 
 ```
 1 - Digitar ou colar texto
-2 - Traduzir arquivo .txt  →  salva resultado em <nome>_traduzido.json
+2 - Traduzir arquivo .txt       →  salva resultado em <nome>_traduzido.json
+3 - Traduzir pasta inteira .txt →  salva cada tradução em <nome>_pt.txt
 ```
 
 ---
