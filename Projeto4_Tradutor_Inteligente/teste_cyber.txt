@@ -1,0 +1,1 @@
+A new zero-day exploit was discovered in a popular VPN software, allowing attackers to deploy ransomware through a phishing campaign. The malware bypassed the firewall and installed a backdoor on the server. Security teams are urging users to apply the latest patch immediately before the botnet spreads further.

@@ -9,14 +9,38 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+GLOSSARIO = [
+    # Ameaças e ataques
+    "phishing", "malware", "ransomware", "spyware", "adware", "rootkit",
+    "backdoor", "exploit", "payload", "botnet", "trojan", "worm", "virus",
+    "keylogger", "cryptojacking", "spoofing", "brute force", "man-in-the-middle",
+    "zero-day", "DDoS", "SQL injection", "cross-site scripting", "XSS", "CSRF",
+    # Segurança e proteção
+    "firewall", "VPN", "antivirus", "sandbox", "honeypot", "WAF", "IDS", "IPS",
+    "pentest", "red team", "blue team", "SIEM", "SOC", "patch", "CVE",
+    # Redes e infraestrutura
+    "Wi-Fi", "bluetooth", "IP", "DNS", "HTTP", "HTTPS", "SSL", "TLS", "TCP",
+    "token", "hash", "checksum", "proxy", "NAT", "VLAN", "router", "switch",
+    # Dev e cloud
+    "software", "hardware", "firmware", "API", "SDK", "framework", "bug",
+    "deploy", "container", "docker", "kubernetes", "cloud", "SaaS", "IaaS",
+    "backup", "log", "script", "runtime", "cache", "cookie", "blockchain",
+    # Dispositivos e sistemas
+    "smartphone", "laptop", "desktop", "server", "IoT", "USB", "BIOS", "GPU",
+    "Linux", "Windows", "Android", "iOS", "macOS",
+]
+
 
 def traduzir(texto):
-    prompt = f"""Você é um tradutor especialista. Analise o texto abaixo e retorne SOMENTE um JSON válido (sem markdown, sem explicações):
+    glossario_str = ", ".join(GLOSSARIO)
+
+    prompt = f"""Você é um tradutor especialista em tecnologia e cibersegurança. Analise o texto abaixo e retorne SOMENTE um JSON válido (sem markdown, sem explicações):
 
 {{
   "idioma_detectado": "nome do idioma em português",
   "codigo_idioma": "código ISO ex: en, es, fr, de, ja, zh",
   "traducao": "tradução completa e natural para o Português Brasileiro",
+  "termos_mantidos": ["lista dos termos do glossário encontrados no texto"],
   "nota_tradutor": "observação opcional sobre expressões, gírias ou contexto cultural — deixe vazio se não houver"
 }}
 
@@ -24,6 +48,7 @@ Regras:
 - Traduza de forma natural e fluente, não literal — preserve o tom, humor e intenção do original
 - Adapte expressões idiomáticas para equivalentes em PT-BR quando existirem
 - Se o texto já estiver em PT-BR, informe isso e retorne o texto original em "traducao"
+- GLOSSÁRIO — estes termos técnicos NUNCA devem ser traduzidos, mantenha-os exatamente como estão: {glossario_str}
 
 Texto:
 {texto}"""
@@ -94,6 +119,8 @@ def traduzir_pasta(caminho_pasta):
 def exibir_resultado(resultado):
     print("\n" + "=" * 50)
     print(f"  Idioma detectado : {resultado['idioma_detectado']} ({resultado['codigo_idioma']})")
+    if resultado.get("termos_mantidos"):
+        print(f"  Termos mantidos  : {', '.join(resultado['termos_mantidos'])}")
     print("=" * 50)
     print(f"\n{resultado['traducao']}")
     if resultado.get("nota_tradutor"):
