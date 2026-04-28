@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from pathlib import Path
 from dotenv import load_dotenv
 from google import genai
@@ -26,10 +27,19 @@ Regras:
 Texto:
 {texto}"""
 
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt
-    )
+    for tentativa in range(3):
+        try:
+            response = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt
+            )
+            break
+        except Exception as e:
+            if tentativa < 2:
+                print(f"  API indisponível, tentando novamente em 10s... ({tentativa + 1}/3)")
+                time.sleep(10)
+            else:
+                raise e
 
     raw = response.text.strip()
 
@@ -65,11 +75,13 @@ def analisar_pasta(caminho_pasta):
     print(f"\nEncontrados {len(arquivos)} arquivo(s) .txt\n")
     todos = {}
 
-    for arquivo in arquivos:
+    for i, arquivo in enumerate(arquivos):
         texto = arquivo.read_text(encoding="utf-8")
         resultado = analisar(texto)
         todos[arquivo.name] = resultado
         print(f"✔ {arquivo.name} → sentimento: {resultado['sentimento']}")
+        if i < len(arquivos) - 1:
+            time.sleep(3)
 
     saida = pasta / "analise_completa.json"
     saida.write_text(json.dumps(todos, ensure_ascii=False, indent=2), encoding="utf-8")
