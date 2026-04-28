@@ -1,0 +1,8 @@
+# Relatórios gerados automaticamente
+relatorio_*.md
+
+# Pastas de gráficos gerados
+graficos_*/
+
+# Logs do agendador
+logs/

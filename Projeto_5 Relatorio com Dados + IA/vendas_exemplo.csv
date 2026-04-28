@@ -1,0 +1,31 @@
+mes,produto,categoria,vendas_unidades,receita_brl,custo_brl,regiao
+Jan,Notebook Pro,Eletrônicos,120,359880,215928,Sudeste
+Jan,Mouse Sem Fio,Periféricos,340,40460,16184,Sudeste
+Jan,Teclado Mecânico,Periféricos,210,104790,41916,Sul
+Jan,Monitor 27",Eletrônicos,85,212415,127449,Nordeste
+Jan,Headset Gamer,Periféricos,95,47405,18962,Norte
+Fev,Notebook Pro,Eletrônicos,98,293706,176224,Sudeste
+Fev,Mouse Sem Fio,Periféricos,410,48790,19516,Centro-Oeste
+Fev,Teclado Mecânico,Periféricos,185,92315,36926,Sul
+Fev,Monitor 27",Eletrônicos,102,254898,152939,Sudeste
+Fev,Headset Gamer,Periféricos,130,64870,25948,Nordeste
+Mar,Notebook Pro,Eletrônicos,145,434655,260793,Sudeste
+Mar,Mouse Sem Fio,Periféricos,520,61880,24752,Sudeste
+Mar,Teclado Mecânico,Periféricos,230,114770,45908,Sul
+Mar,Monitor 27",Eletrônicos,78,194922,116953,Norte
+Mar,Headset Gamer,Periféricos,160,79840,31936,Nordeste
+Abr,Notebook Pro,Eletrônicos,160,479680,287808,Sudeste
+Abr,Mouse Sem Fio,Periféricos,480,57120,22848,Sul
+Abr,Teclado Mecânico,Periféricos,270,134730,53892,Sudeste
+Abr,Monitor 27",Eletrônicos,110,274890,164934,Centro-Oeste
+Abr,Headset Gamer,Periféricos,200,99800,39920,Sudeste
+Mai,Notebook Pro,Eletrônicos,175,524825,314895,Sudeste
+Mai,Mouse Sem Fio,Periféricos,560,66640,26656,Nordeste
+Mai,Teclado Mecânico,Periféricos,310,154690,61876,Sul
+Mai,Monitor 27",Eletrônicos,130,324870,194922,Sudeste
+Mai,Headset Gamer,Periféricos,220,109780,43912,Norte
+Jun,Notebook Pro,Eletrônicos,190,569810,341886,Sudeste
+Jun,Mouse Sem Fio,Periféricos,610,72590,29036,Sul
+Jun,Teclado Mecânico,Periféricos,295,147205,58882,Sudeste
+Jun,Monitor 27",Eletrônicos,145,362355,217413,Nordeste
+Jun,Headset Gamer,Periféricos,245,122255,48902,Centro-Oeste
