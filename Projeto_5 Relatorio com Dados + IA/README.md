@@ -59,6 +59,16 @@ O script detecta o tipo de dados e gera até 4 gráficos em PNG dentro de uma pa
 Os links `![descrição](pasta/arquivo.png)` são inseridos automaticamente ao final do relatório `.md`.  
 O texto do relatório também menciona os gráficos nas seções relevantes (gerado pela IA).
 
+### Exemplos de gráficos gerados
+
+![Evolução temporal](exemplos/evolucao_temporal.png)
+
+![Receita por produto](exemplos/barras_produto.png)
+
+![Participação por categoria](exemplos/pizza_categoria.png)
+
+![Receita empilhada por mês e produto](exemplos/empilhado_mes_produto.png)
+
 ## Requisitos
 
 - Python 3.10+
